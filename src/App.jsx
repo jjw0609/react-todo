@@ -35,7 +35,13 @@ function App() {
             <button onClick={handleClick}>add</button>
         </div>
         <div>
-
+            <ul>
+                {todos.map((todo, index) => {
+                    return (
+                      <li key={index}>{todo}</li>
+                    );
+                })}
+            </ul>
         </div>
     </div>
     )
