@@ -14,7 +14,7 @@ function fetchTodos() {
 function App() {
   // const [count, setCount] = useState(0)
     const [inputText, setInputText] = useState('');
-    const todos = fetchTodos();
+    const [todos, setTodos] = useState(fetchTodos());
 
     const handleInput = (event) => {
         console.log(event);
@@ -29,8 +29,10 @@ function App() {
     }
 
     const handleRemove = (todo, index) => {
-        console.log(todo, index);
-        todos.splice(index, 1);
+        // todos.splice(index, 1);
+        const result = todos.filter(todoItem => todoItem !== todo)
+        setTodos(result);
+        localStorage.removeItem(todo);
     }
 
     return (
