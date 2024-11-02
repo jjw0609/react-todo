@@ -25,6 +25,10 @@ function App() {
     const handleClick = () => {
         console.log('clicked');
         localStorage.setItem(inputText, inputText);
+        // todos.push(inputText);
+        setTodos((currentTodos) => {
+            return [...currentTodos, inputText];
+        })
         setInputText('');
     }
 
