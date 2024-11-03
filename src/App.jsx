@@ -1,5 +1,6 @@
 import {useState} from "react";
 import TodoHeader from "./components/TodoHeader.jsx";
+import TodoInput from "./components/TodoInput.jsx";
 
 
 function fetchTodos() {
@@ -13,25 +14,24 @@ function fetchTodos() {
 }
 
 function App() {
-  // const [count, setCount] = useState(0)
     const [inputText, setInputText] = useState('');
     const [todos, setTodos] = useState(fetchTodos());
 
-    const handleInput = (event) => {
-        console.log(event);
-        const value = event.target.value;
-        setInputText(value);
-    }
+    // const handleInput = (event) => {
+    //     console.log(event);
+    //     const value = event.target.value;
+    //     setInputText(value);
+    // }
 
-    const handleClick = () => {
-        console.log('clicked');
-        localStorage.setItem(inputText, inputText);
-        // todos.push(inputText);
-        setTodos((currentTodos) => {
-            return [...currentTodos, inputText];
-        })
-        setInputText('');
-    }
+    // const handleClick = () => {
+    //     console.log('clicked');
+    //     localStorage.setItem(inputText, inputText);
+    //
+    //     setTodos((currentTodos) => {
+    //         return [...currentTodos, inputText];
+    //     })
+    //     setInputText('');
+    // }
 
     const handleRemove = (todo, index) => {
         // todos.splice(index, 1);
@@ -43,10 +43,7 @@ function App() {
     return (
     <div>
         <TodoHeader />
-        <div>
-            <input type="text" value={inputText} onChange={handleInput} />
-            <button onClick={handleClick}>add</button>
-        </div>
+        <TodoInput />
         <div>
             <ul>
                 {todos.map((todo, index) => {
