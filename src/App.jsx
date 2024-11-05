@@ -15,6 +15,7 @@ import TodoList from "./components/TodoList.jsx";
 // }
 
 function App() {
+    const [todos, setTodos] = useState(fetchTodos());
 
     // const handleInput = (event) => {
     //     console.log(event);
@@ -43,7 +44,7 @@ function App() {
         <div>
             <TodoHeader />
             <TodoInput />
-            <TodoList />
+            <TodoList todos={todos}/>
         </div>
     )
 }

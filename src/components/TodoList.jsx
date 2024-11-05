@@ -10,8 +10,7 @@ function fetchTodos() {
     return result;
 }
 
-function TodoList() {
-    const [todos, setTodos] = useState(fetchTodos());
+function TodoList({todos}) {
 
     const handleRemove = (todo, index) => {
         // todos.splice(index, 1);
@@ -23,7 +22,9 @@ function TodoList() {
     return (
         <div>
             <ul>
-                {todos.map((todo, index) => {
+                {
+                    // eslint-disable-next-line react/prop-types
+                    todos.map((todo, index) => {
                     return (
                         <li key={index}>
                             <span>{todo}</span>
