@@ -6,13 +6,13 @@ function fetchTodos() {
         const value = localStorage.key(i);
         result.push(value);
     }
-
+x
     return result;
 }
 
 function TodoList({todos}) {
 
-    const handleRemove = (todo, index) => {
+    const handleRemove = (todo) => {
         // todos.splice(index, 1);
         const result = todos.filter(todoItem => todoItem !== todo)
         setTodos(result);
