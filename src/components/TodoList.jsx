@@ -10,14 +10,7 @@ x
     return result;
 }
 
-function TodoList({todos}) {
-
-    const handleRemove = (todo) => {
-        // todos.splice(index, 1);
-        const result = todos.filter(todoItem => todoItem !== todo)
-        setTodos(result);
-        localStorage.removeItem(todo);
-    }
+function TodoList({todos, onTodoRemove}) {
 
     return (
         <div>
@@ -28,7 +21,7 @@ function TodoList({todos}) {
                     return (
                         <li key={index}>
                             <span>{todo}</span>
-                            <button onClick={() => handleRemove(todo, index)}>remove</button>
+                            <button onClick={() => onTodoRemove(todo)}>remove</button>
                         </li>
                     );
                 })}

@@ -33,18 +33,18 @@ function App() {
     //     setInputText('');
     // }
 
-    // const handleRemove = (todo, index) => {
-    //     // todos.splice(index, 1);
-    //     const result = todos.filter(todoItem => todoItem !== todo)
-    //     setTodos(result);
-    //     localStorage.removeItem(todo);
-    // }
+    const handleRemove = (todo) => {
+        // todos.splice(index, 1);
+        const result = todos.filter(todoItem => todoItem !== todo)
+        setTodos(result);
+        localStorage.removeItem(todo);
+    }
 
     return (
         <div>
             <TodoHeader />
             <TodoInput />
-            <TodoList todos={todos}/>
+            <TodoList todos={todos} onTodoRemove={handleRemove} />
         </div>
     )
 }
