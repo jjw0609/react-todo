@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-function TodoInput() {
+function TodoInput({onTodoAdd}) {
     const [inputText, setInputText] = useState('');
 
     const handleInput = (event) => {
@@ -10,12 +10,7 @@ function TodoInput() {
     }
 
     const handleClick = () => {
-        console.log('clicked');
-        localStorage.setItem(inputText, inputText);
-
-        setTodos((currentTodos) => {
-            return [...currentTodos, inputText];
-        })
+        onTodoAdd(inputText);
         setInputText('');
     }
 

@@ -33,6 +33,16 @@ function App() {
     //     setInputText('');
     // }
 
+    const addTodo = (todo) => {
+        console.log('clicked');
+        localStorage.setItem(todo, todo);
+
+        setTodos((currentTodos) => {
+            return [...currentTodos, todo];
+        })
+        // setInputText('');
+    }
+
     const handleRemove = (todo) => {
         // todos.splice(index, 1);
         const result = todos.filter(todoItem => todoItem !== todo)
@@ -43,7 +53,7 @@ function App() {
     return (
         <div>
             <TodoHeader />
-            <TodoInput />
+            <TodoInput onTodoAdd={addTodo} />
             <TodoList todos={todos} onTodoRemove={handleRemove} />
         </div>
     )
